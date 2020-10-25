@@ -78,7 +78,7 @@ export function DrawerContent(props) {
               activeTintColor="#000"
               activeBackgroundColor={styles.menuitem}
               onPress={() => {
-                props.navigation.navigate('BookmarkScreen');
+                props.navigation.navigate('Opportunity');
               }}
             />
             <DrawerItem

@@ -10,10 +10,11 @@ import {
   ImageBackground,
   ScrollView,
 } from 'react-native';
-import {useTheme} from '@react-navigation/native';
+import {useNavigation, useTheme} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {AppButton} from '../components/button';
 import UserList from '../components/user-list';
+import {Buttonstyles} from '../components/button';
 
 const HomeScreen = ({navigation}) => {
   const {colors} = useTheme();
@@ -28,16 +29,15 @@ const HomeScreen = ({navigation}) => {
         imageStyle={{resizeMode: 'stretch'}}>
         <View
           style={{
-            flex: 2,
+            flex: 1,
             flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'stretch',
           }}>
           <View style={styles.accountbalanceleft}>
-            <View style={{width: 'auto', flex: 2}}>
+            <View style={{width: 'auto', flex: 1.5}}>
               <Text
                 style={{color: 'white', fontWeight: 'normal', fontSize: 18}}>
-                {' '}
                 Account Balances
               </Text>
             </View>
@@ -53,7 +53,14 @@ const HomeScreen = ({navigation}) => {
                 1 hour
               </Text>
             </View>
-            <AppButton title="Get more hours" />
+            <View style={{width: 'auto', flex: 2.3, flexDirection: 'row'}}>
+              <AppButton
+                title="Get more hours"
+                ContainerStyle={Buttonstyles.appButtonContainer}
+                TextStyle={Buttonstyles.appButtonText}
+                onPress={() => navigation.navigate('AddHours')}
+              />
+            </View>
           </View>
           <View style={styles.accountbalanceright}>
             <Text />
@@ -72,7 +79,11 @@ const HomeScreen = ({navigation}) => {
         </Text>
       </View>
       <View style={[styles.section, styles.section2]}>
-        <AppButton title="Request New Tutor" />
+        <AppButton
+          title="Request New Tutor"
+          ContainerStyle={Buttonstyles.appButtonContainer}
+          TextStyle={Buttonstyles.appButtonText}
+        />
         <ScrollView style={{flex: 3, height: 50}}>
           <UserList />
         </ScrollView>
@@ -83,7 +94,11 @@ const HomeScreen = ({navigation}) => {
           style={styles.background}
           imageStyle={{resizeMode: 'center'}}
         />
-        <AppButton title="Upload homework" />
+        <AppButton
+          title="Upload homework"
+          ContainerStyle={Buttonstyles.appButtonContainer}
+          TextStyle={Buttonstyles.appButtonText}
+        />
       </View>
     </View>
   );
@@ -102,7 +117,7 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    backgroundColor: '#F8F9FE',
+    backgroundColor: '#f8f9fe',
   },
   section: {
     height: box_height, //set this one
@@ -113,7 +128,7 @@ const styles = StyleSheet.create({
   },
   section1: {
     backgroundColor: '#1E3152',
-    flex: 3,
+    flex: 2.5,
   },
   section2: {
     backgroundColor: '#FFFFFF',
@@ -122,7 +137,7 @@ const styles = StyleSheet.create({
   },
   section3: {
     backgroundColor: '#FFFFFF',
-    flex: 4,
+    flex: 3,
     flexDirection: 'column',
     // alignItems: 'center'
   },

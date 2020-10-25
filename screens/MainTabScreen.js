@@ -9,6 +9,10 @@ import HomeScreen from './HomeScreen';
 import DetailsScreen from './DetailsScreen';
 import ExploreScreen from './ExploreScreen';
 import ProfileScreen from './ProfileScreen';
+import OpportunityScreen, {AcceptOpportunityScreen} from './OpportunityScreen';
+import {AddHoursScreen} from './AddHoursScreen';
+import {SelectPayment} from './PaymentSelectScreen';
+import {CreditCardSelect, AddNewCreditCard} from './CreditCardSelectScreen';
 
 const HomeStack = createStackNavigator();
 const DetailsStack = createStackNavigator();
@@ -86,6 +90,102 @@ export const HomeStackScreen = ({navigation}) => (
       component={HomeScreen}
       options={{
         title: 'Dashboard',
+        headerLeft: () => (
+          <Icon.Button
+            name="ios-menu"
+            size={25}
+            backgroundColor="#1E3152"
+            onPress={() => navigation.openDrawer()}
+          />
+        ),
+        headerRight: () => (
+          <Icon.Button
+            name="headset-sharp"
+            size={25}
+            backgroundColor="#1E3152"
+            onPress={() => null}
+          />
+        ),
+      }}
+    />
+    <HomeStack.Screen
+      name="Opportunity"
+      component={OpportunityScreen}
+      options={{
+        title: 'Opportunity',
+        headerLeft: () => (
+          <Icon.Button
+            name="ios-menu"
+            size={25}
+            backgroundColor="#1E3152"
+            onPress={() => navigation.openDrawer()}
+          />
+        ),
+      }}
+    />
+    <HomeStack.Screen
+      name="AcceptOpportunity"
+      component={AcceptOpportunityScreen}
+      options={{
+        headerBackTitle: null,
+        title: 'Opportunity',
+      }}
+    />
+    <HomeStack.Screen
+      name="AddHours"
+      component={AddHoursScreen}
+      options={{
+        headerBackTitle: null,
+        title: 'Add hours',
+      }}
+    />
+    <HomeStack.Screen
+      name="SelectPaymentMethod"
+      component={SelectPayment}
+      options={{
+        headerBackTitle: null,
+        title: 'Payment Method',
+      }}
+    />
+    <HomeStack.Screen
+      name="CreditCardSelect"
+      component={CreditCardSelect}
+      options={{
+        headerBackTitle: null,
+        title: 'Choose card',
+      }}
+    />
+    <HomeStack.Screen
+      name="AddNewCreditCard"
+      component={AddNewCreditCard}
+      options={{
+        headerBackTitle: null,
+        title: 'Add card',
+      }}
+    />
+  </HomeStack.Navigator>
+);
+
+export const OpportunityStackScreen = ({navigation}) => (
+  <HomeStack.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: '#1E3152',
+        height: 120,
+        borderBottomRightRadius: 10,
+        borderBottomLeftRadius: 10,
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+        fontSize: 25,
+      },
+    }}>
+    <HomeStack.Screen
+      name="Opportunity"
+      component={OpportunityScreen}
+      options={{
+        title: 'Opportunity',
         headerLeft: () => (
           <Icon.Button
             name="ios-menu"
