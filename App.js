@@ -27,7 +27,7 @@ import MainTabScreen from './screens/MainTabScreen';
 import SupportScreen from './screens/SupportScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import BookmarkScreen from './screens/BookmarkScreen';
-import {HomeStackScreen, OpportunityStackScreen} from './screens/MainTabScreen';
+import {HomeStackScreen} from './screens/MainTabScreen';
 import { AuthContext } from './components/context';
 
 import RootStackScreen from './screens/RootStackScreen';
@@ -173,7 +173,7 @@ const App = () => {
             drawerStyle={{ width: '80%' }}
         >
           <Drawer.Screen name="HomeDrawer" component={HomeStackScreen} />
-          <Drawer.Screen name="SupportScreen" component={OpportunityStackScreen} />
+          {/*<Drawer.Screen name="SupportScreen" component={OpportunityStackScreen} />*/}
           {/*<Drawer.Screen name="SettingsScreen" component={SettingsScreen} />*/}
           {/*<Drawer.Screen name="BookmarkScreen" component={BookmarkScreen} />*/}
         </Drawer.Navigator>

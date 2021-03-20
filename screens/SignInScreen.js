@@ -13,7 +13,6 @@ import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
-
 import {useTheme} from 'react-native-paper';
 
 import {AuthContext} from '../components/context';
@@ -33,6 +32,7 @@ const SignInScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
+      <StatusBar barStyle="dark-content" />
       <View
         style={{
           justifyContent: 'center',
@@ -45,7 +45,6 @@ const SignInScreen = ({navigation}) => {
           style={{width: '45%', height: '45%'}}
           resizeMode="contain"
         />
-        {/*<Text style={styles.text_header}>Welcome!</Text>*/}
       </View>
       <View style={[styles.header, {flex: 0.5, flexDirection: 'row'}]}>
         <TouchableOpacity
@@ -94,14 +93,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    // backgroundColor: '#5d1010',
-    // marginTop:'20%',
-    // height: '60%',
   },
   header: {
     justifyContent: 'center',
-    // paddingHorizontal: 20,
-    paddingBottom: 45,
+    marginBottom: 20,
   },
   footer: {
     flex: 3,

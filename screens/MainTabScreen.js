@@ -13,6 +13,8 @@ import OpportunityScreen, {AcceptOpportunityScreen} from './OpportunityScreen';
 import {AddHoursScreen} from './AddHoursScreen';
 import {SelectPayment} from './PaymentSelectScreen';
 import {CreditCardSelect, AddNewCreditCard} from './CreditCardSelectScreen';
+import AppointmentScreen, {RequestAppointmentScreen, RequestAppointmentTimeScreen} from './AppointmentScreen';
+import CustomAppointment from './CustomAppointment';
 
 const HomeStack = createStackNavigator();
 const DetailsStack = createStackNavigator();
@@ -163,29 +165,11 @@ export const HomeStackScreen = ({navigation}) => (
         title: 'Add card',
       }}
     />
-  </HomeStack.Navigator>
-);
-
-export const OpportunityStackScreen = ({navigation}) => (
-  <HomeStack.Navigator
-    screenOptions={{
-      headerStyle: {
-        backgroundColor: '#1E3152',
-        height: 120,
-        borderBottomRightRadius: 10,
-        borderBottomLeftRadius: 10,
-      },
-      headerTintColor: '#fff',
-      headerTitleStyle: {
-        fontWeight: 'bold',
-        fontSize: 25,
-      },
-    }}>
     <HomeStack.Screen
-      name="Opportunity"
-      component={OpportunityScreen}
+      name="Appointment"
+      component={AppointmentScreen}
       options={{
-        title: 'Opportunity',
+        title: 'SCHEDULE',
         headerLeft: () => (
           <Icon.Button
             name="ios-menu"
@@ -196,16 +180,88 @@ export const OpportunityStackScreen = ({navigation}) => (
         ),
         headerRight: () => (
           <Icon.Button
-            name="headset-sharp"
+            name="add"
+            size={35}
+            backgroundColor="#1E3152"
+            onPress={() => navigation.navigate('RequestAppointment')}
+          />
+        ),
+      }}
+    />
+    <HomeStack.Screen
+      name="RequestAppointment"
+      component={RequestAppointmentScreen}
+      options={{
+        title: 'Request',
+        headerBackTitle: null,
+      }}
+    />
+    <HomeStack.Screen
+      name="RequestAppointmentTime"
+      component={RequestAppointmentTimeScreen}
+      options={{
+        title: 'Time',
+        headerBackTitle: null,
+      }}
+    />
+    <HomeStack.Screen
+      name="CustomAppointment"
+      component={CustomAppointment}
+      options={{
+        title: 'schedule',
+        headerLeft: () => (
+          <Icon.Button
+            name="ios-menu"
             size={25}
             backgroundColor="#1E3152"
-            onPress={() => null}
+            onPress={() => navigation.openDrawer()}
           />
         ),
       }}
     />
   </HomeStack.Navigator>
 );
+
+// export const OpportunityStackScreen = ({navigation}) => (
+//   <HomeStack.Navigator
+//     screenOptions={{
+//       headerStyle: {
+//         backgroundColor: '#1E3152',
+//         height: 120,
+//         borderBottomRightRadius: 10,
+//         borderBottomLeftRadius: 10,
+//       },
+//       headerTintColor: '#fff',
+//       headerTitleStyle: {
+//         fontWeight: 'bold',
+//         fontSize: 25,
+//       },
+//     }}>
+//     <HomeStack.Screen
+//       name="Opportunity"
+//       component={OpportunityScreen}
+//       options={{
+//         title: 'Opportunity',
+//         headerLeft: () => (
+//           <Icon.Button
+//             name="ios-menu"
+//             size={25}
+//             backgroundColor="#1E3152"
+//             onPress={() => navigation.openDrawer()}
+//           />
+//         ),
+//         headerRight: () => (
+//           <Icon.Button
+//             name="headset-sharp"
+//             size={25}
+//             backgroundColor="#1E3152"
+//             onPress={() => null}
+//           />
+//         ),
+//       }}
+//     />
+//   </HomeStack.Navigator>
+// );
 
 const DetailsStackScreen = ({navigation}) => (
   <DetailsStack.Navigator

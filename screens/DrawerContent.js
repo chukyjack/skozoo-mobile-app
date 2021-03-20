@@ -66,8 +66,18 @@ export function DrawerContent(props) {
               label="Appointments"
               style={styles.menuitem}
               onPress={() => {
-                props.navigation.navigate('Profile');
+                props.navigation.navigate('Appointment');
               }}
+            />
+            <DrawerItem
+                icon={({color, size}) => (
+                    <Icon name="account-outline" color={color} size={size} />
+                )}
+                label="Custom Appointment"
+                style={styles.menuitem}
+                onPress={() => {
+                  props.navigation.navigate('CustomAppointment');
+                }}
             />
             <DrawerItem
               icon={({color, size}) => (
